@@ -188,7 +188,7 @@ of all natural numbers $0,1,2,\dots$ or a finite subset such as $1,2,3,4,5,6$.
 
 Coming back to our original problem, we note that the probability we obtained is
 quite small. Since $1/0.000372$ is about $2690$, we would have to run about
-$2690$ rounds of $1,000,000$ simulations before the largest number falls below
+$2690$ rounds of a $1,000,000$ samples, before we observe an instance whose maximum is smaller than
 $23$.
 :::
 
