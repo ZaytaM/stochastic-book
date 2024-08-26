@@ -4,7 +4,7 @@ author: "Gordan Zitkovic"
 date: "last updated -  `r Sys.Date()`"
 output: html_document
 github-repo: gordanz/M362M
-description: 'A set of lecture notes for *M362M: Introduction to Stochastic Processes*'
+description: 'FALL: A set of lecture notes for *M362M: Introduction to Stochastic Processes*'
 site: bookdown::bookdown_site
 documentclass: book
 ---
