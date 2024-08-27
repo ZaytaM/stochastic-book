@@ -4,7 +4,6 @@ library(dplyr)
 
 # Define the simulation function
 simulate_galton_watson <- function(initial_infected = 1, max_generations = 10) {
-  set.seed(1)  # For reproducibility
   # Initialize
   generations <- 1:max_generations
   num_individuals <- numeric(max_generations)
@@ -13,6 +12,7 @@ simulate_galton_watson <- function(initial_infected = 1, max_generations = 10) {
   # Probabilities for number of offspring
   probabilities <- c(1/4, 1/4, 1/4, 1/4)
   
+ 
   # Simulation
   for (gen in 2:max_generations) {
     current_population <- num_individuals[gen - 1]
@@ -24,7 +24,7 @@ simulate_galton_watson <- function(initial_infected = 1, max_generations = 10) {
     num_individuals[gen] <- new_population
   }
   
-  # Return the results as a data frame
+  # Return the results as a data frames
   data.frame(Generation = generations, NumberOfIndividuals = num_individuals)
 }
 
@@ -39,5 +39,10 @@ simulation_results <- simulate_galton_watson(initial_infected, max_generations)
 print(simulation_results)
 
 # Plot the results
-plot(simulation_results)
-
+plot(simulation_results, col = "blue",xlim=c(1,20), ylim=c(1,(1.5)^20))
+# Initialize Expectation
+E=1:max_generations
+for (gen in 2:max_generations) {
+  E[gen]=1.5^(gen-1)
+}
+lines(1:max_generations, E, type = "o", col = "red")
