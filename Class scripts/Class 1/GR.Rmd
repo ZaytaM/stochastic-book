@@ -9,8 +9,8 @@ output: html_document
 # Load necessary library
 library(ggplot2)
 
-# Set seed for reproducibility
-set.seed(123)
+# # Set seed for reproducibility
+# set.seed(123)
 
 # Number of steps
 n_steps <- 10000
