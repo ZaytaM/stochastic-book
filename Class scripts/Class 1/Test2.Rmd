@@ -1,0 +1,67 @@
+---
+title: "Disease Spread Simulation"
+author: "Your Name"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+## Introduction
+
+This document simulates the spread of a disease where each infected person infects a random number of new people (0, 1, 2, or 3) with equal probability. The simulation tracks the number of infections over time and visualizes the results.
+
+## Setup
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(ggplot2)
+library(dplyr)
+
+simulate_disease_spread <- function(initial_infecteds = 1, max_generations = 10) {
+  set.seed(123) # For reproducibility
+  
+  # Initialize data frame to store results
+  results <- data.frame(Generation = integer(),
+                        Infected = integer())
+  
+  current_generation <- 1
+  current_infected <- initial_infecteds
+  
+  while (current_generation <= max_generations) {
+    # Append current results
+    results <- rbind(results, data.frame(Generation = current_generation,
+                                         Infected = current_infected))
+    
+    # Calculate new infections
+    new_infected <- 0
+    for (i in 1:current_infected) {
+      num_infected <- sample(0:3, 1) # Randomly choose 0, 1, 2, or 3
+      new_infected <- new_infected + num_infected
+    }
+    
+    # Update the number of infected for the next generation
+    current_infected <- new_infected
+    current_generation <- current_generation + 1
+  }
+  
+  return(results)
+}
+
+# Parameters
+initial_infecteds <- 1
+max_generations <- 10
+
+# Run simulation
+simulation_results <- simulate_disease_spread(initial_infecteds, max_generations)
+
+# Print results
+print(simulation_results)
+
+ggplot(simulation_results, aes(x = Generation, y = Infected)) +
+  geom_line() +
+  geom_point() +
+  labs(title = "Disease Spread Simulation",
+       x = "Generation",
+       y = "Number of Infected Individuals") +
+  theme_minimal()
+
+
