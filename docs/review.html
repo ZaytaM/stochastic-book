@@ -370,6 +370,142 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 \[ P(X=2)=P((1,1))=1/36. \]
 </div>
 
+<p>Next, we consider the non-linear random variables. Now we consider \(Y:\Omega\to \mathbb{R}\) and \(Z:\Omega\to \mathbb{R}\) given by</p>
+
+<div class="math display">
+\[ Y((i,j))=\min\{i,j\} \quad \text{and} \quad Z((i,j))=\max\{i,j\}, \]
+</div>
+
+<p>which have probability distributions given by:</p>
+
+<table>
+    <caption>Probability distribution of \(Y\).</caption>
+    <thead>
+        <tr>
+            <th>y</th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+            <th>6</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>P(Y=y)</td>
+            <td>11/36</td>
+            <td>9/36</td>
+            <td>7/36</td>
+            <td>5/36</td>
+            <td>3/36</td>
+            <td>1/36</td>
+        </tr>
+    </tbody>
+</table>
+
+<table>
+    <caption>Probability distribution of \(Z\).</caption>
+    <thead>
+        <tr>
+            <th>z</th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+            <th>6</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>P(Z=z)</td>
+            <td>1/36</td>
+            <td>3/36</td>
+            <td>5/36</td>
+            <td>7/36</td>
+            <td>9/36</td>
+            <td>11/36</td>
+        </tr>
+    </tbody>
+</table>
+
+<p>Knowing the probability distributions of \(Y\) and \(Z\), we cannot actually figure out the joint distribution, which is given by:</p>
+
+<table>
+    <caption>Joint Probability distribution of \(Y\) and \(Z\).</caption>
+    <thead>
+        <tr>
+            <th>y \ z</th>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+            <th>6</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>1</td>
+            <td>1/36</td>
+            <td>2/36</td>
+            <td>2/36</td>
+            <td>2/36</td>
+            <td>2/36</td>
+            <td>2/36</td>
+        </tr>
+        <tr>
+            <td>2</td>
+            <td>0</td>
+            <td>1/36</td>
+            <td>2/36</td>
+            <td>2/36</td>
+            <td>2/36</td>
+            <td>2/36</td>
+        </tr>
+        <tr>
+            <td>3</td>
+            <td>0</td>
+            <td>0</td>
+            <td>1/36</td>
+            <td>2/36</td>
+            <td>2/36</td>
+            <td>2/36</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>1/36</td>
+            <td>2/36</td>
+            <td>2/36</td>
+        </tr>
+        <tr>
+            <td>5</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>1/36</td>
+            <td>2/36</td>
+        </tr>
+        <tr>
+            <td>6</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>0</td>
+            <td>1/36</td>
+        </tr>
+    </tbody>
+</table>
+
+<p><strong>Note:</strong> Knowing the individual distributions, we do not know the joint distributions.</p>
+
+
 <p><strong>Conditional Probability.</strong> How does the probability of an event \(B\subset \Omega\) get affected by the knowledge that we know, or suppose, that another event \(A\subset \Omega\) happened?</p>
 
 <div class="math display">
