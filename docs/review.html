@@ -142,6 +142,9 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 <li class="divider"></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Preface</a></li>
 <li class="chapter" data-level="0" data-path="review.html"><a href="review.html"><i class="fa fa-check"></i><b>0</b> Review</a>
+    <ul>
+     <li class="chapter" data-level="0.1" data-path="review.html"><a href="review.html#definitions"><i class="fa fa-check"></i><b>0.1</b> Definitions</a>
+     </ul>
 <li class="chapter" data-level="1" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>1</b> An intro to R and RStudio</a>
 <ul>
 <li class="chapter" data-level="1.1" data-path="intro.html"><a href="intro.html#setting-up-an-r-environment-on-your-computer"><i class="fa fa-check"></i><b>1.1</b> Setting up an R environment on your computer</a>
@@ -274,7 +277,147 @@ code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warni
 </div>
 <div id="definitions" class="section level1 hasAnchor" number="0.1">
 <h2><span class="header-section-number">0.1</span> Definitions<a href="review.html#definitions" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p><strong>Probability Space and Function.</strong> We consider a finite set <span class="math inline">\(\Omega=\{\omega_i\}_{i=1}^N\)</span> as our space of all plausible events, and an additive probability function <span class="math inline">\(P:2^\Omega\to[0,1]\)</span> that assigns likelihood to any subset of \(\Omega\), which we denote by <span class="math inline">\(2^\Omega\)</span>. Namely, we require that for any \(A\subset\Omega\),</p>
 
+<div class="math display">
+\[ P(A)=\sum_{\omega_i\in A}P(\{\omega_i\}), \]
+</div>
+
+<p>so in particular, we have that if \(A\cap B=\emptyset\), then</p>
+
+<div class="math display">
+\[ P(A\cup B)=\sum_{\omega_i\in A\cup B}P(\{\omega_i\})=\sum_{\omega_i\in A}P(\{\omega_i\})+\sum_{\omega_i\in B}P(\{\omega_i\})=P(A)+P(B). \]
+</div>
+
+<p>Moreover, we need that the probability of any event occurring is exactly 1</p>
+
+<div class="math display">
+\[ P(\Omega)=\sum_{\omega_i\in \Omega}P(\{\omega_i\})=1. \]
+</div>
+
+<p><strong>Example.</strong> Rolling two independent dice, we have the plausible pairs</p>
+
+<div class="math display">
+\[ \Omega=\{(i,j): i,j\in\{1,\dots,6\}\} \]
+</div>
+
+<p>and the natural probability distribution</p>
+
+<div class="math display">
+\[ P(\{(i,j)\})=\frac{1}{36}\quad \forall i,j\in\{1,\dots,6\}. \]
+</div>
+
+<p><strong>Random variable.</strong> A random variable (or observable) is a function</p>
+
+<div class="math display">
+\[ X:\Omega\to\mathbb{R}. \]
+</div>
+
+<p><strong>Example.</strong> For two dice, the typical example is the sum of the two dice:</p>
+
+<div class="math display">
+\[ X((i,j))=i+j, \]
+</div>
+
+<p>which has the following probability distribution:</p>
+
+<table>
+    <caption>Probability distribution for the sum of two dice.</caption>
+    <thead>
+        <tr>
+            <th>x</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+            <th>6</th>
+            <th>7</th>
+            <th>8</th>
+            <th>9</th>
+            <th>10</th>
+            <th>11</th>
+            <th>12</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>P(X=x)</td>
+            <td>1/36</td>
+            <td>2/36</td>
+            <td>3/36</td>
+            <td>4/36</td>
+            <td>5/36</td>
+            <td>6/36</td>
+            <td>5/36</td>
+            <td>4/36</td>
+            <td>3/36</td>
+            <td>2/36</td>
+            <td>1/36</td>
+        </tr>
+    </tbody>
+</table>
+
+<p></p>
+
+<div class="math display">
+\[ P(X=x)=P(\{\omega_i : X(\omega_i)=x\})=\sum_{\{\omega_i : X(\omega_i)=x\}} P(\omega_i). \]
+</div>
+
+<p>Simplest case,</p>
+
+<div class="math display">
+\[ P(X=2)=P((1,1))=1/36. \]
+</div>
+
+<p><strong>Conditional Probability.</strong> How does the probability of an event \(B\subset \Omega\) get affected by the knowledge that we know, or suppose, that another event \(A\subset \Omega\) happened?</p>
+
+<div class="math display">
+\[ P(B|A)=\frac{P(B\cap A)}{P(A)}. \]
+</div>
+
+<p>or equivalently the multiplication rule</p>
+
+<div class="math display">
+\[ P(B\cap A)=P(A)P(B|A). \]
+</div>
+
+<p>We can use this with the <em>Law of total probability</em>: Assume \(A_1,\dots, A_N\subset\Omega\) satisfy \(\bigcup_{i=1}^N A_i=\Omega\) and \(A_i\cap A_j=\emptyset\) for \(i\ne j\), then for any \(B\subset \Omega\),</p>
+
+<div class="math display">
+\[ P(B)=\sum_{i=1}^N P(B\cap A_i)=\sum_{i=1}^N P(B|A_i) P(A_i). \]
+</div>
+
+<p><strong>Example.</strong> Assume we have two urns with balls inside them. Urn 1 has 10 Blue balls and 30 Red Balls, and Urn 2 has 40 Blue balls and 20 Red balls. Assume a ball is picked with the following algorithm:</p>
+
+<ul>
+    <li>Pick an Urn at random.</li>
+    <li>Pick a ball from that Urn at random.</li>
+</ul>
+
+<p>Assume that you win if the ball picked is Blue. What is the probability that the ball is Blue?</p>
+
+<div class="math display">
+\[
+\begin{aligned}
+    P(\{\text{Ball is Blue}\}) &= P(\{\text{Ball is Blue}\}|\{\text{Urn 1}\})P(\{\text{Urn 1}\})+P(\{\text{Ball is Blue}\}|\{\text{Urn 2}\})P(\{\text{Urn 2}\}) \\
+    &= \frac{10}{40}\times\frac{1}{2}+\frac{40}{60}\times\frac{1}{2} \\
+    &=\frac{1}{8}+\frac{1}{3}.
+\end{aligned}
+\]
+</div>
+
+<p>In the background, we have a Probability space </p>
+
+<div class="math display">
+\[ \Omega=\{(1,B),(1,R),(2,B),(2,R)\} \]
+</div>
+
+<p>and probability function</p>
+
+<div class="math display">
+\[ P((1,B))=\frac{1}{8}, \quad P((1,R))=\frac{3}{8}, \quad P((2,B))=\frac{1}{3},\quad P((2,R))=\frac{1}{6}. \]
+</div>
+<p><strong>Question:</strong> Assume that you can arrange the balls yourself, how do you maximize your chances of winning?</p>
 </div>
 </div>
 <div class="footnotes">
