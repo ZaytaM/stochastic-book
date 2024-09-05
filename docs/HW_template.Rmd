@@ -1,7 +1,11 @@
 ---
-title: 'A Template for HW solutions; M362M, Fall 2021'
-author: 'Jane B. Student, eid:jbs123'
-date: '2021-09-01'
+title: "HW 3, M362M, Fall 2024"
+author:
+  - John Doe (jbs1234)
+  - Jane Doe (jes3452)
+  - Anthony Lee (ams1234)
+  - Maria Casanueva (mcc3452)
+date: "2024-10-15"
 output: pdf_document
 ---
 

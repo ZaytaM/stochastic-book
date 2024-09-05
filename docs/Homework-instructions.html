@@ -221,22 +221,25 @@ documents are R’s version of Jupyter notebooks.</p>
 <h2>How to format and submit your code</h2>
 <p>The format of your Rmd file is going to be very similar to the format of the
 default Rmd file that appears when you create it in RStudio. A few things (like
-your name, etc.) need to be different. I have created a <a href="https://gordanz.github.io/M362M/HW_template.Rmd">sample homework Rmd
+your name, etc.) need to be different. I have created a <a href="https://zaytam.github.io/stochastic-book/docs/HW_template.Rmd">sample homework Rmd
 file</a> that you can <strong>use as a
 template.</strong> There are two important rules:</p>
 <p>1. the top should look like this</p>
 <pre class="yaml"><code>---
-title: &quot;HW 7, M362M, Fall 2020&quot;
-author: &quot;Jane B. Student, eid jbs123 &quot;
-date: &quot;2020-10-14&quot;
+title: &quot;HW 3, M362M, Fall 2024&quot;
+author:
+  - John Doe (jbs1234)
+  - Jane Doe (jes3452)
+  - Anthony Lee (ams1234)
+  - Maria Casanueva (mcc3452)
+date: &quot;2024-9-15&quot;
 output: pdf_document
----</code></pre>
-<p>(with obvious substitutions such as <code>HW</code> -&gt; <code>Exam</code> if you are submitting an
-in-term exam, etc.). It is important to include your EID, as well as the course
+</code></pre>
+<p> It is important to include everybodys name and your EID, as well as the course
 number and the semester. Don’t forget <code>---</code> at the beginning and the end, and
 don’t forget <code>:</code> after <code>title</code>, <code>author</code> or <code>date</code>. Note that in the last line,
 the default <code>html_notebook</code> needs to be changed to <code>pdf_document</code>. That is why I
-<strong>strongly recommend downloading the</strong> <a href="https://gordanz.github.io/M362M/HW_template.Rmd">sample Rmd
+<strong>strongly recommend downloading the</strong> <a href="https://zaytam.github.io/stochastic-book/docs/HW_template.Rmd">sample Rmd
 file</a> <strong>and using it as a
 template.</strong></p>
 <p>2. Each problem needs to start with the problem number preceeded by <code>##</code>, and
@@ -261,7 +264,7 @@ the following in your R console:</p>
 do this once. After that, the only thing you need to do is press <em>Cmd+Shift+K</em>
 (on a Mac) or <em>Ctrl+Shift+K</em> (on Windows or Linux) - K stands for “Knit!”. By
 default, this pdf file will end up in the same folder as the original Rmd file
-used to create it. Here is what the knitted <a href="https://gordanz.github.io/M362M/HW_template.pdf">pdf
+used to create it. Here is what the knitted <a href="https://zaytam.github.io/stochastic-book/docs/HW_template.pdf">pdf
 version</a> of our sample homework
 template file from above looks like.</p>
 <center>
