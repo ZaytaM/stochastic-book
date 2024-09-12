@@ -2,7 +2,7 @@
 library(ggplot2)
 
 # Number of samples
-q_samples <- 100  # Maximum number of copies
+q_samples <- 10000  # Maximum number of copies
 
 # Function to simulate the sample mean for different numbers of observations
 simulate_binomial_CLT <- function(num_copies) {
