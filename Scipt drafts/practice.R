@@ -1,5 +1,9 @@
 # Set the number of simulations
+<<<<<<< HEAD
 nsim = 10000
+=======
+nsim = 100000
+>>>>>>> bd65a2a7569652669c6bb1a69f3c72067283b092
 
 # Define the joint distribution as a data frame
 joint_distribution_long = data.frame(
