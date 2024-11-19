@@ -1,10 +1,10 @@
 # state space
 S = c(0, 1, 2, 3)
 # transition matrix
-P = matrix(c(1,   0,   0,   0, 
+P = matrix(c(0,   1,   0,   0, 
              1/3, 0,   2/3, 0,
              0,   1/3, 0,   2/3,
-             0,   0,   0,   1),
+             0,   0,   1,   0),
            byrow=T, ncol=4)
 T = 100 # number of time periods
 nsim = 1000 # number of simulations
@@ -32,6 +32,6 @@ simulate_chain = function(initial_distribution) {
                nsim, single_trajectory(initial_distribution)
              )))
 }
-in_d=c(1/4,1/4,1/4,1/4)
+in_d=c(0,0,1,0)
 df = simulate_chain(in_d)
 (p = mean(df$X100 == 3))
