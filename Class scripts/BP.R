@@ -3,8 +3,8 @@ p_0 <- 0.1  # Probability of 0 offspring
 p_1 <- 0.6  # Probability of 1 offspring
 p_2 <- 0.3  # Probability of 2 offspring
 offspring_probs <- c(p_0, p_1, p_2)
-generations <- 10  # Number of generations
-simulations <- 100  # Number of simulations
+generations <- 13  # Number of generations
+simulations <- 1000  # Number of simulations
 
 # Function to simulate a single branching process
 simulate_extinction <- function() {
@@ -17,9 +17,4 @@ simulate_extinction <- function() {
   }
   return(0)  # Return not extinction
 }
-# Run multiple simulations
-results <- replicate(simulations, simulate_extinction())
-
-# Calculate and print the estimated probability of extinction
-prob_extinction <- mean(results)
-cat("Estimated probability of extinction:", prob_extinction, "\n")
+results <- replicate(simulations,simulate_extinction())
